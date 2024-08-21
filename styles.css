@@ -1,0 +1,71 @@
+/* Estilo básico do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2c82b7;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilo do título do jogo */
+h1 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Estilo do tabuleiro do jogo (grid) */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* 4 colunas de 100px cada */
+    gap: 10px; /* Espaçamento entre as cartas */
+}
+
+/* Estilo básico das cartas */
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #444;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    transform: rotateY(0deg); /* Inicialmente, as cartas não estão viradas */
+    transform-style: preserve-3d; /* Mantém a percepção 3D ao girar */
+    transition: transform 0.5s; /* Animação de virar as cartas */
+}
+
+/* Estilo para cartas viradas */
+.card.flipped {
+    transform: rotateY(180deg); /* Gira a carta em 180 graus */
+}
+
+/* Estilo da frente e do verso das cartas */
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta o outro lado da carta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+/* Estilo da frente da carta */
+.card .front {
+    background-color: #ffcc00;
+    color: #444444;
+    transform: rotateY(180deg); /* Frente inicialmente oculta */
+}
+
+/* Estilo do verso da carta */
+.card .back {
+    background-color: #0f0cb9;
+    color: white;
+}
